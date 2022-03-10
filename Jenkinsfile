@@ -15,7 +15,7 @@ pipeline {
     stage('Build') {
       steps {
         tool 'gradle4'
-        sh 'which gradle && gradle build'
+        sh 'gradle build'
       }
     }
 
