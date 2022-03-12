@@ -15,7 +15,7 @@ pipeline {
     stage('Build') {
       steps {
         tool 'gradle4'
-        sh 'gradle build'
+        sh 'source /etc/profile.d/gradle.sh && gradle build'
       }
     }
 
