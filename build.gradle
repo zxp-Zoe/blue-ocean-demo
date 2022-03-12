@@ -37,7 +37,7 @@ subprojects {
 	
 	
 
-	configurations.compile.transitive = true  // Make sure transitive project dependencies are resolved.
+	configurations.implementation.transitive = true  // Make sure transitive project dependencies are resolved.
 
 
 	// set backwards compatibililty with 1.7 so we can use in things like tomcat 7
@@ -95,19 +95,19 @@ subprojects {
 	}
 	
 	dependencies {
-		compile 'mysql:mysql-connector-java:5.1.38'
-		compile "javax.ws.rs:jsr311-api:1.1.1" 
-		compile 'com.sun.jersey:jersey-server:1.19' 
-		compile 'com.sun.jersey:jersey-core:1.19' 
-	 	compile 'com.sun.jersey:jersey-client:1.19' 
-		compile 'com.sun.jersey:jersey-servlet:1.19' 
-		compile 'com.sun.jersey:jersey-json:1.19' 
-		compile 'com.fasterxml.jackson.core:jackson-core:2.6.3'
-		compile 'com.fasterxml.jackson.core:jackson-databind:2.6.3'
-		compile 'com.fasterxml.jackson.core:jackson-annotations:2.6.3'
-		compile 'com.fasterxml.jackson.jaxrs:jackson-jaxrs-json-provider:2.6.3'
-		compile 'com.fasterxml.jackson.jaxrs:jackson-jaxrs-base:2.6.3'
-		compile 'org.owasp.esapi:esapi:2.0.1'
+		implementation 'mysql:mysql-connector-java:5.1.38'
+		implementation "javax.ws.rs:jsr311-api:1.1.1" 
+		implementation 'com.sun.jersey:jersey-server:1.19' 
+		implementation 'com.sun.jersey:jersey-core:1.19' 
+	 	implementation 'com.sun.jersey:jersey-client:1.19' 
+		implementation 'com.sun.jersey:jersey-servlet:1.19' 
+		implementation 'com.sun.jersey:jersey-json:1.19' 
+		implementation 'com.fasterxml.jackson.core:jackson-core:2.6.3'
+		implementation 'com.fasterxml.jackson.core:jackson-databind:2.6.3'
+		implementation 'com.fasterxml.jackson.core:jackson-annotations:2.6.3'
+		implementation 'com.fasterxml.jackson.jaxrs:jackson-jaxrs-json-provider:2.6.3'
+		implementation 'com.fasterxml.jackson.jaxrs:jackson-jaxrs-base:2.6.3'
+		implementation 'org.owasp.esapi:esapi:2.0.1'
 	}
 		
 	dependencies {
@@ -176,7 +176,7 @@ project(':dataaccess') {
 
 
 	dependencies {
-		compile project(':util')
+		implementation project(':util')
 	}
 	// create a configuration from our testing pieces for other things to depend on (see api)
 	configurations {
@@ -195,7 +195,7 @@ project(':dataaccess') {
 // individual subproject 
 project(':api') {
 	dependencies {
-		compile project(':dataaccess')
+		implementation project(':dataaccess')
 		 testCompile project (path: ":dataaccess", configuration: 'testArtifacts')
 		 testCompile 'com.mockrunner:mockrunner-jdbc:1.1.1'
 	}
@@ -220,7 +220,7 @@ project(':web') {
 
 
     dependencies {
-	compile project(':api')
+	implementation project(':api')
         testCompile'commons-io:commons-io:2.5'
 	testCompile 'junit:junit:4.11'
     }
